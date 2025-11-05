@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlock Content Prototype</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f5f5f5; }
+  h1 { color: #333; }
+  .loader-container { width: 300px; margin: 50px auto; background: #ddd; border-radius: 25px; overflow: hidden; }
+  .loader-bar { width: 0; height: 20px; background: #007BFF; }
+  #unlockBtn { padding: 10px 20px; font-size: 16px; background: #28a745; color: white; border: none; cursor: pointer; display: none; border-radius: 5px; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>Unlock Exclusive Content</h1>
+
+<div class="loader-container">
+  <div class="loader-bar" id="loaderBar"></div>
+</div>
+
+<button id="unlockBtn">Unlock Now</button>
+
+<p id="message"></p>
+
+<script>
+  // Fake loading bar animation
+  const loader = document.getElementById('loaderBar');
+  let width = 0;
+  let interval = setInterval(() => {
+    width += 1;
+    loader.style.width = width + '%';
+    if(width >= 100) {
+      clearInterval(interval);
+      document.getElementById('unlockBtn').style.display = 'inline-block';
+      document.getElementById('message').innerText = 'Click the button to unlock your content!';
+    }
+  }, 30); // 30ms x 100 = ~3 seconds
+
+  // Placeholder for Smartlink trigger
+  document.getElementById('unlockBtn').addEventListener('click', () => {
+    alert('Smartlink would trigger here, redirecting to your content...');
+    // window.location.href = "https://your-GG-Smartlink-or-download-page.com";
+  });
+</script>
+
+</body>
+</html>

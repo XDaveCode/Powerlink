@@ -3,78 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlock Content</title>
 
-<!-- PopCash verification meta tag -->
-<meta name="ppck-ver" content="cbdd2d61906cc069157ce1b47c40a8d1" />
+<!-- PopCash Verification -->
+<meta name="ppck-ver" content="ffb5ccc5fd3d0e581aed946f0c9f70cc">
 
-<title>Unlock Exclusive Content</title>
+<!-- ExoClick Verification -->
+<meta name="6a97888e-site-verification" content="cbef122194a9253f73983d27c03215af">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGBN3S7N');</script>
 
 <style>
-  body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f5f5f5; }
-  h1 { color: #333; }
-  .loader-container { width: 300px; margin: 50px auto; background: #ddd; border-radius: 25px; overflow: hidden; }
-  .loader-bar { width: 0; height: 20px; background: #007BFF; transition: width 0.3s; }
-  #unlockBtn { padding: 10px 20px; font-size: 16px; background: #28a745; color: white; border: none; cursor: pointer; display: none; border-radius: 5px; margin-top: 20px; }
+  body, html {
+    margin:0; padding:0; width:100%; height:100%;
+    display:flex; justify-content:center; align-items:center;
+    background:#fff; font-family:sans-serif; overflow:hidden;
+  }
+  #loader-container {
+    position: relative;
+    width:50vw; height:50vh; min-width:250px; min-height:250px;
+    display:flex; justify-content:center; align-items:center; flex-direction:column;
+  }
+  #loader {
+    width:80px; height:80px;
+    border:8px solid #ccc;
+    border-top:8px solid #2196f3;
+    border-radius:50%;
+    animation: spin 1.5s linear infinite;
+    margin-bottom:20px;
+  }
+  @keyframes spin {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+  }
+  #unlock-btn {
+    padding:15px 30px; background:#2196f3; color:#fff; font-size:1.5em;
+    border:none; border-radius:12px; cursor:pointer;
+    animation: pulse 1.5s infinite alternate;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.15);}
+    100% {transform: scale(1);}
+  }
+  #loader-text {
+    font-size:1.2em; color:#2196f3; margin-top:10px;
+    animation: pulseText 1.5s infinite alternate;
+  }
+  @keyframes pulseText {
+    0% {transform:scale(1);}
+    50% {transform:scale(1.1);}
+    100% {transform:scale(1);}
+  }
+  .emoji {
+    position:absolute; font-size:2em; animation: floatup 3s linear forwards;
+    pointer-events:none;
+  }
+  @keyframes floatup {
+    0% {opacity:1; transform:translateY(0);}
+    100% {opacity:0; transform:translateY(-200px);}
+  }
+  #ad-container {position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;}
 </style>
 </head>
 <body>
 
-<h1>Unlock Exclusive Content</h1>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGBN3S7N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="loader-container">
-  <div class="loader-bar" id="loaderBar"></div>
+<div id="loader-container">
+  <div id="loader"></div>
+  <div id="loader-text">Preparing your content… 3s</div>
+  <button id="unlock-btn" style="display:none;">🔓 Unlock Content</button>
 </div>
 
-<button id="unlockBtn">Unlock Now</button>
+<div id="ad-container">
+  <!-- PopCash -->
+  <script async src="https://www.popcash.net/pop.js"></script>
+  <!-- HilltopAds -->
+  <iframe src="https://frail-benefit.com/Vanpfk" style="display:block;width:100%;height:60px;border:none;"></iframe>
+  <!-- Adsterra -->
+  <iframe src="https://droppinglevelspacious.com/u6wzr7in?key=f46f30f4769645e946156626d8eaeadf" style="display:block;width:100%;height:60px;border:none;"></iframe>
+  <!-- ExoClick -->
+  <script async src="https://exoclick.com/adscript.js"></script>
+  <!-- Monetag -->
+  <script async src="https://otieu.com/4/10092370"></script>
+</div>
 
-<p id="message"></p>
-
-<!-- GG Smartlink script -->
-<script type="text/javascript" src="https://qvxprml.one/cl/648da0395cce0fe4"></script>
-
-<!-- Adsterra placeholder script -->
-<script>
+<!-- CPA Smartlink -->
+<script type="text/javascript">
+  var lck = false;
   (function(){
-    var s = document.createElement('script');
-    s.src = 'https://droppinglevelspacious.com/u6wzr7in?key=f46f30f4769645e946156626d8eaeadc';
-    s.async = true;
+    var s=document.createElement('script');
+    s.src='https://playabledownload.com/script_include.php?id=1851719';
+    s.onload=function(){
+      if(!lck){ top.location='https://playabledownload.com/help/ablk.php?lkt=1'; }
+    };
     document.body.appendChild(s);
   })();
 </script>
 
-<!-- HilltopAds placeholder script -->
 <script>
-  (function(){
-    var s = document.createElement('script');
-    s.src = 'https://frail-benefit.com/Vanpfk';
-    s.async = true;
-    document.body.appendChild(s);
-  })();
-</script>
+  // Loader countdown
+  let countdown = 3;
+  const loaderText = document.getElementById('loader-text');
+  const unlockBtn = document.getElementById('unlock-btn');
+  const loaderContainer = document.getElementById('loader-container');
 
-<!-- Fake loading bar + unlock button -->
-<script>
-  const loader = document.getElementById('loaderBar');
-  let width = 0;
-  let interval = setInterval(() => {
-    width += 1;
-    loader.style.width = width + '%';
-    if(width >= 100){
-      clearInterval(interval);
-      document.getElementById('unlockBtn').style.display = 'inline-block';
-      document.getElementById('message').innerText = 'Click the button to unlock your content!';
+  let emojiArray = ['😄','😍','😲','💖','🎉'];
+  function spawnEmojis(){
+    let count = [1,3,5,3,1][Math.floor(Math.random()*5)]; // pattern
+    for(let i=0;i<count;i++){
+      const e=document.createElement('div');
+      e.className='emoji';
+      e.innerText=emojiArray[Math.floor(Math.random()*emojiArray.length)];
+      e.style.left=Math.random()*80+'%';
+      e.style.fontSize=(20+Math.random()*30)+'px';
+      loaderContainer.appendChild(e);
+      setTimeout(()=>e.remove(),3000);
     }
-  }, 30); // ~3 seconds
+  }
 
-  // Unlock button triggers Smartlink (placeholder)
-  document.getElementById('unlockBtn').addEventListener('click', () => {
-    alert('Smartlink would trigger here. PopCash script will also run in background once inserted.');
-    // When ready, replace alert with: window.location.href = "https://qvxprml.one/cl/648da0395cce0fe4";
+  const interval = setInterval(()=>{
+    countdown-=0.1;
+    loaderText.innerText=`Preparing your content… ${Math.ceil(countdown)}s`;
+    spawnEmojis();
+    if(countdown<=0){
+      clearInterval(interval);
+      loaderText.style.display='none';
+      document.getElementById('loader').style.display='none';
+      unlockBtn.style.display='block';
+    }
+  },100);
+
+  // Unlock button click triggers Smartlink
+  unlockBtn.addEventListener('click',()=>{
+    // Optionally trigger CPA here
+    if(!lck){ top.location='https://playabledownload.com/help/ablk.php?lkt=1'; }
   });
-</script>
 
-<!-- PopCash script placeholder -->
-<!-- Replace this comment with the real PopCash script once you get it -->
+  // Anti-adblock
+  setTimeout(()=>{
+    if(!document.querySelectorAll('iframe').length){
+      alert("Please disable adblock to access content.");
+    }
+  },2000);
+</script>
 
 </body>
 </html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PRIME SOURCE</title>
+
+  <!-- Verification tags (safe, don't trigger actions) -->
+  <meta name="ppck-ver" content="ffb5ccc5fd3d0e581aed946f0c9f70cc" />
+  <meta name="5df1ba9d2e3dac3cf068d90d223fa5631f6a3745" content="5df1ba9d2e3dac3cf068d90d223fa5631f6a3745" />
+
+  <!-- Google Tag Manager (GTM-WGBN3S7N) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WGBN3S7N');
+  </script>
+
+  <!-- Adsterra visible script (social bar / banner) -->
+  <script type="text/javascript" src="//spitefulleapraspberry.com/f8/d6/9d/f8d69d01915ccffb54b4095e79d50e69.js" async></script>
+
+  <style>
+    :root{--bg:#ffffff;--card:#f7fbff;--accent:#0ea5e9;--muted:#6b7280;--text:#07203a;}
+    *{box-sizing:border-box} body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);margin:0;line-height:1.35}
+    .center{max-width:980px;margin:40px auto;padding:20px;text-align:center}
+    .logo{font-weight:800;font-size:28px;letter-spacing:2px;color:var(--accent);display:inline-block;padding:14px 22px;border-radius:14px;background:linear-gradient(180deg,rgba(14,165,233,0.06),rgba(96,165,250,0.03))}
+    .headline{font-size:48px;margin:22px 0 8px;color:#062635;font-weight:900}
+    .sub{color:var(--muted);margin-bottom:18px}
+    .loader-wrap{margin:18px auto;max-width:520px}
+    .loader{height:12px;background:#eef8ff;border-radius:999px;overflow:hidden}
+    .bar{width:0;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);transition:width .2s linear}
+    .unlock{display:none;margin-top:18px}
+    .btn{background:var(--accent);color:#fff;padding:12px 20px;border-radius:10px;border:0;font-weight:700;cursor:pointer;font-size:16px}
+    .note{color:var(--muted);font-size:13px;margin-top:10px}
+    .ad-slot{margin-top:18px;border-radius:10px;padding:14px;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid rgba(3,7,18,0.03)}
+    footer{margin-top:28px;color:var(--muted);font-size:13px}
+    @media (max-width:600px){ .headline{font-size:28px} }
+  </style>
+</head>
+<body>
+  <!-- GTM noscript (recommended) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGBN3S7N" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main class="center" role="main">
+    <div class="logo" aria-hidden="true">PRIME SOURCE</div>
+    <h1 class="headline" id="mainTitle">PRIME SOURCE</h1>
+    <p class="sub" id="subtitle">Welcome — click unlock to reveal content. Ads only trigger after you choose to unlock.</p>
+
+    <div class="loader-wrap" aria-hidden="true">
+      <div class="loader"><div class="bar" id="bar"></div></div>
+    </div>
+
+    <div class="unlock" id="unlockWrap">
+      <button id="unlockBtn" class="btn">Unlock Now</button>
+      <div class="note" id="note">Opens offers in a new tab. If nothing opens, use the backup link below.</div>
+    </div>
+
+    <div class="ad-slot" id="adTop" aria-hidden="true">Top banner / Adsterra slot (visible)</div>
+
+    <div id="value" style="display:none;margin-top:18px" aria-live="polite">
+      <h2 style="margin:0 0 10px">Content unlocked</h2>
+      <p class="sub">Complete offers in the new tab to reach the final content. Use the backup link if needed.</p>
+      <div class="ad-slot" id="adMid">Mid page ad area</div>
+      <p style="margin-top:12px"><a id="backup" href="#" target="_blank" rel="noopener">Backup content link</a></p>
+    </div>
+
+    <footer>
+      <div>© Prime Source</div>
+      <p><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+    </footer>
+  </main>
+
+  <script>
+    // ====== CONFIG (edit if needed) ======
+    const GG_SMARTLINK = "https://qvxprml.one/cl/648da0395cce0fe4"; // opens on unlock
+    const CPAGRIP_SRC = "https://playabledownload.com/script_include.php?id=1851719"; // injected if needed
+    const POPCASH_SNIPPET = ""; // paste full PopCash <script>.. here once PopCash provides it
+    const HILLTOP_SNIPPET = ""; // paste Hilltop Ads script tag here if provided
+
+    // UI elements
+    const bar = document.getElementById('bar');
+    const unlockWrap = document.getElementById('unlockWrap');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const note = document.getElementById('note');
+    const value = document.getElementById('value');
+    const backup = document.getElementById('backup');
+    const adTop = document.getElementById('adTop');
+    const adMid = document.getElementById('adMid');
+
+    // Loader animation (3s fade-in)
+    let p=0;
+    const t = setInterval(()=>{
+      p+=2;
+      bar.style.width = p + '%';
+      if(p>=100){ clearInterval(t); unlockWrap.style.display = 'block'; adTop.setAttribute('aria-hidden','false'); adTop.style.visibility='visible'; }
+    },60);
+
+    // Health check helpers
+    function injectScript(src){ return new Promise(resolve=>{
+      try{
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.onload = ()=>resolve(true);
+        s.onerror = ()=>resolve(false);
+        document.body.appendChild(s);
+      }catch(e){ resolve(false); }
+    });}
+
+    // Inject CPAGrip only on demand (non-blocking)
+    async function loadCPAGrip(){
+      if(!CPAGRIP_SRC) return false;
+      return await injectScript(CPAGRIP_SRC);
+    }
+
+    // Inject PopCash (only after you paste the snippet into POPCASH_SNIPPET)
+    function injectPopCashRaw(html){
+      if(!html || !html.trim()) return false;
+      const wrap = document.createElement('div');
+      wrap.innerHTML = html;
+      document.body.appendChild(wrap);
+      return true;
+    }
+
+    // Unlock click behavior - user-triggered actions only
+    unlockBtn.addEventListener('click', async ()=>{
+      // 1) Open GG Smartlink in new tab (preferred)
+      const cfgUrl = GG_SMARTLINK;
+      if(cfgUrl){
+        const w = window.open(cfgUrl, '_blank', 'noopener,noreferrer');
+        if(!w){
+          // popup blocked -> fallback to same tab
+          window.location.href = cfgUrl;
+        }
+      }
+
+      // 2) Inject CPAGrip (non-blocking) as backup/offers provider
+      loadCPAGrip().then(ok=>console.log('CPAGrip injected?', ok));
+
+      // 3) Attempt to inject PopCash snippet only if provided (safe; you must paste it in POPCASH_SNIPPET)
+      if(POPCASH_SNIPPET && POPCASH_SNIPPET.trim()){
+        try{ injectPopCashRaw(POPCASH_SNIPPET); console.log('PopCash snippet injected'); }catch(e){console.warn('PopCash injection failed',e); }
+      }
+
+      // 4) Reveal value area for user and send GTM event
+      value.style.display='block';
+      try{ dataLayer.push({event:'unlock_click'}); }catch(e){ /* GTM not present? ignore */ }
+
+      // 5) After click, try to load Hilltop Ads script (if you paste it in HILLTOP_SNIPPET)
+      if(HILLTOP_SNIPPET && HILLTOP_SNIPPET.trim()){
+        try{ const wrap = document.createElement('div'); wrap.innerHTML = HILLTOP_SNIPPET; document.body.appendChild(wrap); console.log('Hilltop injected'); }catch(e){console.warn('Hilltop injection failed'); }
+      }
+    });
+
+    // Backup link (in case user prefers direct path)
+    backup.href = GG_SMARTLINK;
+
+    // Anti-adblock polite notice (non-invasive)
+    (function detectAdblock(){
+      const el = document.createElement('div');
+      el.className = 'adsbox';
+      el.style.cssText = 'position:absolute;left:-9999px;';
+      document.body.appendChild(el);
+      setTimeout(()=>{
+        const blocked = getComputedStyle(el).display === 'none' || el.offsetParent === null || el.clientHeight===0;
+        document.body.removeChild(el);
+        if(blocked){
+          const warn = document.createElement('div');
+          warn.style.marginTop='12px'; warn.style.padding='10px'; warn.style.border='1px solid rgba(2,6,23,0.04)'; warn.style.borderRadius='8px';
+          warn.innerHTML = '<strong>Notice:</strong> It looks like an adblocker is active. To keep this service free, please whitelist this site or use the backup link.';
+          document.querySelector('main').insertBefore(warn, document.querySelector('main').children[3]);
+        }
+      },120);
+    })();
+  </script>
+</body>
+</html>
